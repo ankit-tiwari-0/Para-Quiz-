@@ -1,0 +1,250 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background:#f8f0e5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1rem;
+    font-family: sans-serif;
+
+}
+
+.container{
+    background-color: white;
+    border-radius: 1.5rem;
+    box-shadow: 15px 25px 30px rgba(231, 142, 142, 0.38);
+    width: 100%;
+    max-width: 600px;
+    height: 100%;
+    min-height: 300px;
+    overflow: hidden;
+    position: relative;
+}
+
+.screen{
+    display: none;
+    padding: 2rem;
+    text-align: center;
+
+}
+
+.screen.active{
+    display: block;
+}
+
+#start-screen h1{
+    color: #e86a33;
+    margin-bottom: 60px;
+    font-size: 3.5rem;
+}
+
+.quiz-header{
+    margin-bottom: 2rem;
+}
+
+
+#question-text{
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.4rem;
+    
+}
+
+.quiz-info{
+    display: flex;
+    justify-content: space-between;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+
+.answer-container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 25px;
+
+}
+
+.answers-btn{
+    width: 50%;
+    background-color: #f8f0e5;
+    color: #333;
+    border: 2px solid #eadbc8;
+
+}
+
+.answers-btn:hover{
+    background-color: #eadbc8;
+    border-color: #dac0ae;
+}
+
+.answers-btn.correct{
+    background-color: #e6fff0;
+    border-color: #a3f0c4;
+    color: #0ae73e;
+}
+
+.answers-btn.incorrect{
+    background-color: #e6fff0;
+    border-color: #ffbdbd;
+    color: #dc3445;
+}
+
+.progress-bar{
+    height: 10px;
+    background-color: #f7f5f3;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 20px;
+
+}
+
+.progress{
+    height: 100%;
+    background-color: #63ab7e;
+    border-radius: 5px;
+    overflow: hidden;
+    
+
+}
+
+
+#result-screen h1{
+    color: #e86a33;
+    margin-bottom: 30px;
+}
+
+.result-info{
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.result-info p{
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+#result-message{
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #e86a33;
+}
+
+
+
+button {
+  margin-top: 1rem;  
+  padding: 15px 25px;
+  background: linear-gradient(45deg, #ff6b6b, #f1c40f);
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  border: 2px solid transparent;
+  border-radius: 30px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+  transform: translateX(20px); 
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(45deg, #b1b0ae, #9a1717); 
+}
+
+
+button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 300%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 0.9s ease;
+  transform: translateX(-100%);
+}
+
+
+button:hover::before {
+  transform: translateX(0);
+}
+
+
+button:hover {
+  animation: bounce 0.5s ease-in-out forwards;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-20px); /* Move left */
+  }
+  50% {
+    transform: translateX(20px); /* Move right */
+  }
+  75% {
+    transform: translateX(-15px); /* Slight left */
+  }
+  100% {
+    transform: translateX(0); /* Back to center */
+  }
+}
+
+
+
+#start-screen p {
+    margin-bottom: 30px;
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 1.5;
+  text-align: center;
+  padding: 20px;
+
+  background: linear-gradient(135deg, #956956fc, #4b8887, #0f100f); /* Gradient background */
+  background-size: 300% 300%;
+  display: inline-block;
+
+  color: transparent; /* Required for background-clip: text to work */
+  -webkit-background-clip: text; /* WebKit-specific clipping */
+  background-clip: text; /* Standard version (ignored by most browsers, but safe to include) */
+
+  animation: gradientBackground 3s ease infinite, textShadowAnimation 2s ease-in-out infinite;
+  transition: transform 0.3s ease-in-out, letter-spacing 0.3s ease-in-out;
+}
+
+
+@media(max-width:500px){
+
+    .screen{
+        padding: 1rem;
+    }
+
+    #start-screen h1{
+        font-size: 2.5rem;
+    }
+
+    #start-screen p{
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+}
